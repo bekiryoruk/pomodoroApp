@@ -19,7 +19,7 @@ class App extends React.Component {
   startTime = () => {}
   stopTime = () => {}
   resetTime = () => {
-    this.setState([])
+    this.setState({ hours: '', minutes: '', seconds: '' })
   }
 
   render() {
@@ -56,6 +56,8 @@ class App extends React.Component {
             hours: {this.state.hours}, minutes: {this.state.minutes}, seconds:
             {this.state.seconds}
           </p>
+        </div>
+        <div>
           <button onClick={this.startTime}>Start</button>
           <button onClick={this.stopTime}>Stop</button>
           <button onClick={this.resetTime}>Reset</button>
