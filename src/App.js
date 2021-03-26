@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './App.css'
 class App extends React.Component {
   constructor() {
     super()
@@ -68,35 +68,52 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='allpage'>
         <div>
-          <h1>Welcome to Pomodoro</h1>
+          <h1 className='welcome'>Welcome to Pomodoro</h1>
+        </div>
+
+        <div>
+          <div className='breakcircle'>
+            <button className='btn' onClick={this.decreaseBreak}>
+              -
+            </button>
+            <h3 className='breaknumbertext'>{this.state.break}</h3>
+            <button className='btn' onClick={this.increaseBreak}>
+              +
+            </button>
+            <h3>Break</h3>
+            <br />
+          </div>
+          <div className='workingcircle'>
+            <button className='btn' onClick={this.decreaseMinutes}>
+              -
+            </button>
+            <h3 className='workingnumbertext'>{this.state.minutes}</h3>
+            <button className='btn' onClick={this.increaseMinutes}>
+              +
+            </button>
+            <h3>Work</h3>
+          </div>
+        </div>
+        <div className='timeremain'>
+          <h1>
+            {Math.floor(this.state.total_time / 60)}:
+            {this.state.total_time % 60 === 0
+              ? '00'
+              : this.state.total_time % 60}
+          </h1>
         </div>
         <div>
-          <button onClick={this.decreaseBreak}>-</button>
-          <h3>{this.state.break}</h3>
-          <button onClick={this.increaseBreak}>+</button>
-          <h3>break</h3>
-          <br />
-        </div>
-        <div>
-          <button onClick={this.decreaseMinutes}>-</button>
-          <h3>{this.state.minutes}</h3>
-          <button onClick={this.increaseMinutes}>+</button>
-          <h3>working</h3>
-        </div>
-        <div>
-          <button onClick={this.startTime}>Start</button>
-          <button onClick={this.stopTime}>
+          <button className='startstopreset' onClick={this.startTime}>
+            Start
+          </button>
+          <button className='startstopreset' onClick={this.stopTime}>
             {this.state.work ? 'Stop' : 'Continue'}
           </button>
-          <button onClick={this.resetTime}>Reset</button>
-        </div>
-        <div>
-          <h1>
-            The time left is: {Math.floor(this.state.total_time / 60)}:
-            {this.state.total_time % 60}
-          </h1>
+          <button className='startstopreset' onClick={this.resetTime}>
+            Reset
+          </button>
         </div>
       </div>
     )

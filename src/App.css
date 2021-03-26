@@ -1,0 +1,50 @@
+.allpage {
+  background-color: orangered;
+  text-align: center;
+}
+.welcome {
+  text-align: center;
+  font-size: 65px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.btn {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 auto;
+  background: transparent;
+  border: transparent;
+}
+.breakcircle {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 auto;
+  padding-right: 100px;
+}
+.workingcircle {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 auto;
+  padding-left: 100px;
+}
+.breaknumbertext {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 auto;
+}
+.workingnumbertext {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 auto;
+}
+.startstopreset {
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 auto;
+  background: transparent;
+  border: transparent;
+  padding-bottom: 25px;
+  font-size: 22px;
+}
+.timeremain {
+  font-size: 40px;
+}
