@@ -4,10 +4,11 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      hours: '',
-      minutes: '',
-      seconds: '',
+      minutes: 30,
+      break: 5,
+      total_time: 0,
     }
+    this.decreaseMinutes = this.decreaseMinutes.bind(this)
   }
   inputHandler = (e) => {
     this.setState({
@@ -19,7 +20,12 @@ class App extends React.Component {
   startTime = () => {}
   stopTime = () => {}
   resetTime = () => {
-    this.setState({ hours: '', minutes: '', seconds: '' })
+    this.setState({ minutes: '', break: '' })
+  }
+  decreaseMinutes() {
+    this.setState((prevState) => ({
+      minutes: prevState.minutes - 1,
+    }))
   }
 
   render() {
@@ -27,40 +33,27 @@ class App extends React.Component {
       <div>
         <h1>Welcome to Pomodoro</h1>
         <div>
-          <h3>hours</h3>
-          <input
-            name='hours'
-            type='text'
-            placeholder='0'
-            value={this.state.hours}
-            onChange={this.inputHandler}
-          />
+          <button onClick={this.decreaseMinutes}>-</button>
+          <h3>{this.state.minutes}</h3>
+          <button onClick={this.increaseMinutes}>+</button>
           <h3>minutes</h3>
-          <input
-            name='minutes'
-            type='text'
-            placeholder='0'
-            value={this.state.minutes}
-            onChange={this.inputHandler}
-          />
-          <h3>seconds</h3>
-          <input
-            name='seconds'
-            type='text'
-            placeholder='0'
-            value={this.state.seconds}
-            onChange={this.inputHandler}
-          />
+
+          <button onClick={this.decreaseBreak}>-</button>
+
+          <h3>{this.state.break}</h3>
+          <button onClick={this.increaseBreak}>+</button>
+
+          <h3>break</h3>
+
           <br />
-          <p>
-            hours: {this.state.hours}, minutes: {this.state.minutes}, seconds:
-            {this.state.seconds}
-          </p>
         </div>
         <div>
           <button onClick={this.startTime}>Start</button>
           <button onClick={this.stopTime}>Stop</button>
           <button onClick={this.resetTime}>Reset</button>
+        </div>
+        <div>
+          <h1>The time left is: {this.state.break}</h1>
         </div>
       </div>
     )
