@@ -16,7 +16,7 @@ class App extends React.Component {
     this.timer = this.timer.bind(this)
   }
   timer() {
-    if (this.state.work) {
+    if (this.state.work && this.state.total_time > 0) {
       this.setState({
         total_time: this.state.total_time - 1,
       })
@@ -39,11 +39,12 @@ class App extends React.Component {
   }
   stopTime = () => {
     this.setState((prevState) => ({
-      work: !prevState.work,
+      work: this.state.total_time > 0 ? !prevState.work : prevState.work,
     }))
   }
+
   resetTime = () => {
-    this.setState({ minutes: 0, break: 0 })
+    this.setState({ minutes: 0, break: 0, total_time: 0, work: false })
   }
   decreaseMinutes() {
     this.setState((prevState) => ({
