@@ -39,7 +39,7 @@ class App extends React.Component {
   }
   stopTime = () => {
     this.setState((prevState) => ({
-      work: false,
+      work: !prevState.work,
     }))
   }
   resetTime = () => {
@@ -86,7 +86,9 @@ class App extends React.Component {
         </div>
         <div>
           <button onClick={this.startTime}>Start</button>
-          <button onClick={this.stopTime}>Stop</button>
+          <button onClick={this.stopTime}>
+            {this.state.work ? 'Stop' : 'Continue'}
+          </button>
           <button onClick={this.resetTime}>Reset</button>
         </div>
         <div>
